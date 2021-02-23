@@ -43,8 +43,8 @@ class _BottomNavigationTravelkuyState extends State<BottomNavigationTravelkuy> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: _selectedIndex == 0
-                ? new SvgPicture.asset('assets/icons/home.svg')
-                : SvgPicture.asset('assets/icons/home_colored.svg'),
+                ? new SvgPicture.asset('assets/icons/home_colored.svg')
+                : SvgPicture.asset('assets/icons/home.svg'),
             title: Text(
               'Home',
               style: botttomTextStyle,
@@ -52,8 +52,26 @@ class _BottomNavigationTravelkuyState extends State<BottomNavigationTravelkuy> {
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 1
-                ? new SvgPicture.asset('assets/icons/home.svg')
-                : SvgPicture.asset('assets/icons/home_colored.svg'),
+                ? new SvgPicture.asset('assets/icons/order_colored.svg')
+                : SvgPicture.asset('assets/icons/order.svg'),
+            title: Text(
+              'Home',
+              style: botttomTextStyle,
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 2
+                ? new SvgPicture.asset('assets/icons/watch_colored.svg')
+                : SvgPicture.asset('assets/icons/watch.svg'),
+            title: Text(
+              'Home',
+              style: botttomTextStyle,
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 3
+                ? new SvgPicture.asset('assets/icons/account_colored.svg')
+                : SvgPicture.asset('assets/icons/account.svg'),
             title: Text(
               'Home',
               style: botttomTextStyle,
@@ -67,7 +85,7 @@ class _BottomNavigationTravelkuyState extends State<BottomNavigationTravelkuy> {
         backgroundColor: Colors.transparent,
         type: BottomNavigationBarType.fixed,
         selectedFontSize: 12,
-        showSelectedLabels: true,
+        showUnselectedLabels: true,
         elevation: 0,
       ),
     );
