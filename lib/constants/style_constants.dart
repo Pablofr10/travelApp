@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fluttertravelkuyapp/constants/color_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelApp/constants/color_constants.dart';
 
 // Style for title
 var mTitleStyle = GoogleFonts.inter(

@@ -4,6 +4,8 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:travelApp/constants/color_constants.dart';
 import 'package:travelApp/constants/style_constants.dart';
 import 'package:travelApp/models/carousel_model.dart';
+import 'package:travelApp/models/popular_destination_model.dart';
+import 'package:travelApp/models/travel_log.dart';
 import 'package:travelApp/widgets/bottom_navigation_travelkuy.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           physics: ClampingScrollPhysics(),
           children: [
+            // Promo Section
             Padding(
               padding: EdgeInsets.only(
                 left: 16,
@@ -109,11 +112,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+
+            // Service Section
             Padding(
-              padding: EdgeInsets.only(
-                left: 16,
-                top: 24,
-              ),
+              padding: EdgeInsets.only(left: 16, top: 24, bottom: 12),
               child: Text(
                 'Let\'s Booking',
                 style: mTitleStyle,
@@ -126,44 +128,290 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        margin: EdgeInsets.only(right: 8),
-                        padding: EdgeInsets.only(left: 16),
-                        height: 64,
-                        decoration: BoxDecoration(
-                          color: mFillColor,
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: mBorderColor, width: 1),
-                        ),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/svg/service_flight_icon.svg',
-                              fit: BoxFit.contain,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Flight',
-                                    style: mServiceTitleStyle,
-                                  ),
-                                  Text(
-                                    'Feel freedom',
-                                    style: mServiceSubTitleStyle,
-                                  )
-                                ],
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: mFillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: mBorderColor, width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg/service_flight_icon.svg',
+                                fit: BoxFit.contain,
                               ),
-                            )
-                          ],
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Flight',
+                                      style: mServiceTitleStyle,
+                                    ),
+                                    Text(
+                                      'Feel freedom',
+                                      style: mServiceSubtitleStyle,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: mFillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: mBorderColor, width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg/service_train_icon.svg',
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Trains',
+                                      style: mServiceTitleStyle,
+                                    ),
+                                    Text(
+                                      'Intercity',
+                                      style: mServiceSubtitleStyle,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],
-                  )
+                  ),
+                  SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: mFillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: mBorderColor, width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg/service_hotel_icon.svg',
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Hotel',
+                                      style: mServiceTitleStyle,
+                                    ),
+                                    Text(
+                                      'Let\'s take a break',
+                                      style: mServiceSubtitleStyle,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: mFillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: mBorderColor, width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg/service_car_rental_icon.svg',
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Car Rental',
+                                      style: mServiceTitleStyle,
+                                    ),
+                                    Text(
+                                      'Around the city',
+                                      style: mServiceSubtitleStyle,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ],
               ),
+            ),
+
+            // Popular Destination Section
+            Padding(
+              padding: EdgeInsets.only(left: 16, top: 24, bottom: 12),
+              child: Text(
+                'Popular Destinations',
+                style: mTitleStyle,
+              ),
+            ),
+            Container(
+              height: 140,
+              child: ListView.builder(
+                itemCount: populars.length,
+                padding: EdgeInsets.only(left: 16, right: 16),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Container(
+                      height: 140,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: mBorderColor, width: 1),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 8.0, bottom: 16),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              populars[index].image,
+                              height: 74,
+                            ),
+                            Text(
+                              populars[index].name,
+                              style: mPopularDestinationTitleStyle,
+                            ),
+                            Text(
+                              populars[index].country,
+                              style: mPopularDestinationSubtitleStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+
+            // Travelog Section
+            Padding(
+              padding: EdgeInsets.only(left: 16, top: 24, bottom: 12),
+              child: Text(
+                'Travlog!',
+                style: mTitleStyle,
+              ),
+            ),
+            Container(
+              height: 181,
+              child: ListView.builder(
+                  padding: EdgeInsets.only(left: 16),
+                  itemCount: travlogs.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: 16),
+                      width: 220,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                height: 104,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  image: DecorationImage(
+                                    image: AssetImage(travlogs[index].image),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                child: SvgPicture.asset(
+                                    'assets/svg/travlog_top_corner.svg'),
+                                right: 0,
+                              ),
+                              Positioned(
+                                top: 8,
+                                right: 8,
+                                child: SvgPicture.asset(
+                                    'assets/svg/travelkuy_logo_white.svg'),
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                child: SvgPicture.asset(
+                                    'assets/svg/travlog_bottom_gradient.svg'),
+                              ),
+                              Positioned(
+                                  child: Text(
+                                'Travlog' + travlogs[index].name,
+                                style: mTravlogTitleStyle,
+                              ))
+                            ],
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            travlogs[index].content,
+                            maxLines: 3,
+                            style: mTravlogContentStyle,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            travlogs[index].place,
+                            style: mTravlogPlaceStyle,
+                          )
+                        ],
+                      ),
+                    );
+                  }),
             ),
           ],
         ),
